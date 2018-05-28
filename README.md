@@ -2,11 +2,11 @@
 Google-Udacity Front End Web Development Nanodegree - Project 4
 
 ## Table of Contents
-*Project
-*Installation
-*How to play
-*Bugs
-*Contributing
+* Project
+* Installation
+* How to play
+* Bugs
+* Contributing
 
 ## Project
 In this game you have a Player and Enemies (Bugs). The goal of the player is to reach the water, without colliding into any one of the enemies.
