@@ -27,8 +27,8 @@ Enemy.prototype.update = function(dt) {
     }
     //Check whether the bugs are in collision with the player
     if (Math.abs(this.x - player.x) < 80  && Math.abs(this.y - player.y)< 40) {
-        player.x = 202;
-        player.y = 500;
+        player.x = 200;
+        player.y = 400;
     }
 }
 
@@ -48,14 +48,14 @@ function checkCollision() {
         this.y < player.y + player.height &&
         this.height + this.y > player.y) {
         // collision detected!
-        player.x = 202;
-        player.y = 404;
+        player.x = 200;
+        player.y = 400;
     }*/
 
     /*BUG: as function this code doesn't work as well
     if (Math.abs(this.x - player.x) < 80  && Math.abs(this.y - player.y)< 80) {
-        player.x = 202;
-        player.y = 404;
+        player.x = 200;
+        player.y = 400;
     }*/
 }
 };
@@ -121,8 +121,8 @@ Player.prototype.handleInput = function(keyDirection) {
 };
 
 function resetPlayer() {
-    player.x = 202;
-    player.y = 500;
+    player.x = 200;
+    player.y = 400;
 };
 
 };
