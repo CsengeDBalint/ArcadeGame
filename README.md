@@ -19,7 +19,7 @@ Once the player reaches the water the game is won.
 Clone or download this repository, then open index.html in your favorite browser.
 
 ## Start game
-* play online
+* [play online] (https://csengedbalint.github.io/ArcadeGame/)
 * or play offline opening the index.html in your browser
 * use arrows to move
 * the goal is to reach the water, but watch out for the bugs!
