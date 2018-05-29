@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
     //Check whether the bugs are in collision with the player
     if (Math.abs(this.x - player.x) < 80  && Math.abs(this.y - player.y)< 40) {
         player.x = 202;
-        player.y = 404;
+        player.y = 500;
     }
 }
 
@@ -105,6 +105,7 @@ Player.prototype.handleInput = function(keyDirection) {
     if (keyDirection === 'up' && this.y - 100 < 0) { //If the player hit the top of the gamefield reset player
         
         resetPlayer();
+        openModal();
 
     } else if (keyDirection === 'up' && this.y < 506){
         this.y -= 85;
@@ -121,7 +122,7 @@ Player.prototype.handleInput = function(keyDirection) {
 
 function resetPlayer() {
     player.x = 202;
-    player.y = 404;
+    player.y = 500;
 };
 
 };
@@ -131,12 +132,11 @@ function resetPlayer() {
 
 
 const enemy1 = new Enemy(-80, 150);
-const enemy2 = new Enemy(-10, 70);
+const enemy2 = new Enemy(-60, 70);
 const enemy3 = new Enemy(-100, 230);
-//const enemy4 = new Enemy(0, 150);
-//const enemy5 = new Enemy(-20, 70);
+const enemy4 = new Enemy(0, 150);
 
-let allEnemies = [enemy1, enemy2, enemy3];
+let allEnemies = [enemy1, enemy2, enemy3, enemy4];
 let player = new Player(200,400);
 
 // This listens for key presses and sends the keys to your
@@ -151,3 +151,46 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+ 
+// Get the main container, body and header
+var body = document.getElementsByTagName('body');
+var container = document.getElementById('myContainer');
+var header = document.getElementsByTagName('header');
+
+// Get the close button
+var btnClose = document.getElementById("closeModal");
+ 
+// Open the modal
+function openModal() {
+    modal.className = "Modal is-visuallyHidden";
+    setTimeout(function() {
+      container.className = "overlay";
+      modal.className = "Modal";
+      header[0].className = "is-blurred";
+    }, 100);
+    container.parentElement.className = "ModalOpen";
+}
+ 
+// Close the modal
+btnClose.onclick = function() {
+    modal.className = "Modal is-hidden is-visuallyHidden";
+    body.className = "";
+    container.parentElement.className = "";
+    container.className = "";
+    header[0].className = "";
+}
+ 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.className = "Modal is-hidden";
+        body.className = "";
+        container.parentElement.className = "";
+        container.className = "";
+        header[0].className = "";
+    }
+}
