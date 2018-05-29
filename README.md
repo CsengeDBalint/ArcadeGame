@@ -4,7 +4,7 @@ Google-Udacity Front End Web Development Nanodegree - Project 4
 ## Table of Contents
 * Project
 * Installation
-* How to play
+* Start game
 * Bugs
 * Contributing
 
@@ -16,9 +16,16 @@ Once a the player collides with an enemy, the game is reset and the player moves
 Once the player reaches the water the game is won.
 
 ## Installation
+Clone or download this repository, then open index.html in your favorite browser.
 
-## How to play
+## Start game
+* play online
+* or play offline opening the index.html in your browser
+* use arrows to move
+* the goal is to reach the water, but watch out for the bugs!
 
 ## Bugs
+No bugs known.
 
 ## Contributing
+This project was made on the purpose of learning. If you want to contribute to this project, your help is very welcome.
