@@ -21,15 +21,12 @@ Enemy.prototype.update = function(dt) {
     // all computers.
   
     this.x = this.x + this.speed * dt; //Enemies move only horizantally
-    //Enemies return from the other side of the gameboard
-    if (this.x >= 505){ 
+    
+    if (this.x >= 505){ //Enemies return from the other side of the gameboard
         this.x = -100;
     }
-    //Check whether the bugs are in collision with the player
-    if (Math.abs(this.x - player.x) < 80  && Math.abs(this.y - player.y)< 40) {
-        player.x = 200;
-        player.y = 400;
-    }
+   
+    checkCollisions(allEnemies); // Check whether a bug collides with player
 }
 
 // Draw the enemy on the screen, required method for game
@@ -37,28 +34,21 @@ Enemy.prototype.render = function() {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
+
 }
 
-function checkCollision() {
-    /* BUG: doesn't work
-    2D collision detection code by MNM
-    console.log("Collision started");
-    if (this.x < player.x + player.width &&
-        this.x + this.width > player.x &&
-        this.y < player.y + player.height &&
-        this.height + this.y > player.y) {
-        // collision detected!
-        player.x = 200;
-        player.y = 400;
-    }*/
-
-    /*BUG: as function this code doesn't work as well
-    if (Math.abs(this.x - player.x) < 80  && Math.abs(this.y - player.y)< 80) {
-        player.x = 200;
-        player.y = 400;
-    }*/
-}
 };
+
+
+function checkCollisions(allEnemies) {
+   
+        allEnemies.forEach(function(element){
+            if (Math.abs(element.x - player.x) < 80  && Math.abs(element.y - player.y)< 80){
+                resetPlayer();
+                }
+    });
+
+}
 
 
 // Now write your own player class
@@ -120,12 +110,14 @@ Player.prototype.handleInput = function(keyDirection) {
     }
 };
 
+};
+
 function resetPlayer() {
     player.x = 200;
     player.y = 400;
 };
 
-};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
